@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080808">
+<meta name="description" content="Veloxa Supply — electric dirt bike parts and upgrades.">
+<title>VELOXA SUPPLY — Parts for the ride</title>
+<style>
+:root{--bg:#080808;--panel:#111;--muted:#a1a1a1;--line:#292929;--white:#f5f5f5}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:Arial,Helvetica,sans-serif}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+.announcement{height:34px;display:flex;align-items:center;justify-content:center;background:#eee;color:#111;font-size:10px;letter-spacing:2px;text-transform:uppercase}
+header{height:82px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:#080808;position:sticky;top:0;z-index:10}
+.brand{display:flex;align-items:center;gap:13px}.brand img{width:49px;height:49px;object-fit:cover;border-radius:2px}.brand span{font-size:15px;font-weight:800;letter-spacing:3px}
+nav{display:flex;gap:34px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#ddd}nav a:hover,.text-link:hover{color:#999}
+.header-actions{display:flex;align-items:center;gap:20px;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+.cart-btn{background:none;border:0;color:white;padding:10px 0}.cart-count{display:inline-grid;place-items:center;background:#f3f3f3;color:#111;border-radius:50%;width:19px;height:19px;margin-left:5px;font-size:10px}
+.menu-btn{display:none;background:none;border:0;color:white;font-size:22px}
+.hero{position:relative;min-height:520px;height:min(72vw,720px);max-height:720px;overflow:hidden;background:#181818}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:center 48%;display:block;filter:brightness(.72)}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.08) 75%),linear-gradient(0deg,rgba(0,0,0,.32),transparent 45%)}
+.hero-copy{position:absolute;z-index:1;left:8vw;bottom:14%;max-width:540px}
+.eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#c5c5c5}
+h1{font-size:clamp(42px,7vw,88px);line-height:.92;letter-spacing:-4px;margin:18px 0 20px;font-weight:900}
+.hero-copy p{font-size:13px;line-height:1.7;color:#ddd;max-width:360px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:15px 25px;background:#f3f3f3;color:#080808;border:1px solid #f3f3f3;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;transition:.2s}
+.btn:hover{background:transparent;color:#fff}.btn-outline{background:transparent;color:#fff;border-color:#777}
+.section{padding:88px 7vw}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:32px}
+.section-head h2{font-size:clamp(27px,4vw,43px);letter-spacing:-1.5px;margin:9px 0 0}
+.section-head p{color:var(--muted);font-size:12px;line-height:1.6;max-width:300px}
+.product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.product-card{min-width:0}.product-image{position:relative;background:#f7f7f7;aspect-ratio:1/1;overflow:hidden}
+.product-image img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .45s}
+.product-card:hover .product-image img{transform:scale(1.035)}
+.tag{position:absolute;top:15px;left:15px;background:#111;color:#fff;padding:8px 10px;font-size:9px;letter-spacing:1.5px;text-transform:uppercase}
+.product-info{display:flex;justify-content:space-between;gap:12px;padding:17px 1px}
+.product-info h3{margin:0 0 7px;font-size:15px;letter-spacing:.2px}.product-info p{margin:0;color:#999;font-size:11px;line-height:1.5}
+.price{font-size:14px;font-weight:700;white-space:nowrap}
+.card-actions{display:flex;gap:10px;padding:0 0 12px}.card-actions button{flex:1}
+.small-btn{padding:13px 12px;background:transparent;border:1px solid #555;color:#fff;font-size:9px;letter-spacing:1.5px;text-transform:uppercase}
+.small-btn:hover{background:#fff;color:#111}
+.feature{display:grid;grid-template-columns:1fr 1fr;min-height:400px;background:#121212}
+.feature img{width:100%;height:100%;min-height:400px;object-fit:cover}
+.feature-copy{padding:8vw;display:flex;flex-direction:column;justify-content:center}
+.feature-copy h2{font-size:clamp(30px,4vw,52px);letter-spacing:-2px;line-height:1;margin:15px 0}
+.feature-copy p{color:#aaa;font-size:13px;line-height:1.8;max-width:400px;margin-bottom:25px}
+.compat{border-top:1px solid var(--line);margin-top:16px;padding-top:15px;color:#aaa;font-size:11px;line-height:1.8}
+.values{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.value{padding:35px 25px;text-align:center;border-right:1px solid var(--line)}.value:last-child{border:0}
+.value strong{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:9px}.value span{font-size:11px;color:#999}
+footer{padding:55px 7vw 25px;background:#050505}
+.footer-top{display:flex;justify-content:space-between;gap:40px;padding-bottom:45px}
+.footer-brand{font-size:18px;letter-spacing:3px;font-weight:900}.footer-top p{max-width:300px;color:#888;font-size:12px;line-height:1.8}
+.footer-links{display:flex;gap:70px}.footer-links div{display:flex;flex-direction:column;gap:13px;font-size:11px;color:#aaa}.footer-links b{color:#fff;font-size:10px;letter-spacing:2px;margin-bottom:5px}
+.footer-bottom{border-top:1px solid #242424;padding-top:20px;display:flex;justify-content:space-between;color:#777;font-size:10px;letter-spacing:1px}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:20;opacity:0;pointer-events:none;transition:.25s}.overlay.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;right:0;top:0;height:100%;width:min(440px,100%);background:#101010;z-index:21;transform:translateX(100%);transition:.3s;padding:26px;display:flex;flex-direction:column}
+.drawer.open{transform:translateX(0)}.drawer-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #333;padding-bottom:18px}
+.drawer-head h2{font-size:15px;letter-spacing:2px}.close{background:none;border:0;color:white;font-size:25px}
+.cart-items{flex:1;overflow:auto;padding:18px 0}.cart-row{display:grid;grid-template-columns:76px 1fr auto;gap:14px;padding:14px 0;border-bottom:1px solid #292929;align-items:center}
+.cart-row img{width:76px;height:76px;object-fit:contain;background:#fff}.cart-row h3{font-size:12px;margin:0 0 7px}.cart-row p{font-size:11px;color:#999;margin:0}
+.remove{background:none;border:0;color:#999;font-size:11px;text-decoration:underline}
+.cart-total{border-top:1px solid #333;padding-top:18px}.total-line{display:flex;justify-content:space-between;font-size:14px;margin-bottom:15px}
+.checkout-note{font-size:10px;color:#888;line-height:1.6;margin-top:12px}
+.modal{position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.82);display:none;place-items:center;padding:20px}.modal.open{display:grid}
+.modal-box{background:#111;border:1px solid #333;max-width:500px;width:100%;padding:30px;position:relative}.modal-box h2{font-size:22px}.modal-box p{font-size:12px;color:#aaa;line-height:1.7}
+.modal-box input,.modal-box textarea{width:100%;padding:13px;margin:7px 0;background:#080808;border:1px solid #444;color:white}
+@media(max-width:720px){
+ header{height:70px;padding:0 5vw}.brand img{width:42px;height:42px}.brand span{font-size:12px;letter-spacing:2px}
+ nav{display:none}.menu-btn{display:block}.header-actions{gap:13px}
+ .hero{height:640px;min-height:0}.hero img{object-position:56% center}.hero-copy{left:7vw;right:7vw;bottom:10%}
+ h1{letter-spacing:-2px}.section{padding:62px 5vw}.section-head{display:block}.section-head p{margin-top:12px}
+ .product-grid{grid-template-columns:1fr;gap:28px}.product-image{aspect-ratio:1/1}
+ .feature{grid-template-columns:1fr}.feature img{min-height:260px;max-height:350px}.feature-copy{padding:55px 7vw}
+ .values{grid-template-columns:1fr}.value{border-right:0;border-bottom:1px solid var(--line);padding:25px}
+ .footer-top{display:block}.footer-links{gap:45px;margin-top:30px}.footer-bottom{gap:12px;flex-direction:column}
+}
+</style>
+</head>
+<body>
+<div class="announcement">BUILT FOR THE RIDE&nbsp;&nbsp; • &nbsp;&nbsp; VELOXA SUPPLY</div>
+<header>
+ <button class="menu-btn" aria-label="Open menu" onclick="document.getElementById('shop').scrollIntoView()">☰</button>
+ <a class="brand" href="#"><img src="assets/logo.jpeg" alt="Veloxa V X logo"><span>VELOXA SUPPLY</span></a>
+ <nav><a href="#">Home</a><a href="#shop">Shop all</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+ <div class="header-actions"><a href="#shop">Shop</a><button class="cart-btn" onclick="openCart()">Bag <span class="cart-count" id="cartCount">0</span></button></div>
+</header>
+<main>
+<section class="hero">
+ <img src="assets/hero-bike.png" alt="Blue electric dirt bike frame being built in a workshop">
+ <div class="hero-copy"><div class="eyebrow">Electric ride. No compromise.</div><h1>BUILT TO<br>STAND OUT.</h1><p>Parts and upgrades for riders who build their bike their own way.</p><a class="btn" href="#shop">Shop products&nbsp; →</a></div>
+</section>
+<section class="section" id="shop">
+ <div class="section-head"><div><div class="eyebrow">The essentials</div><h2>SHOP THE DROP</h2></div><p>Carefully selected upgrades for your electric dirt bike. Check product compatibility before ordering.</p></div>
+ <div class="product-grid">
+  <article class="product-card">
+   <div class="product-image"><span class="tag">Featured</span><img src="assets/baja-light-white.jpeg" alt="Baja Light headlight"></div>
+   <div class="product-info"><div><h3>Baja Light</h3><p>Ultra Bee accessories</p></div><div class="price">€100.00</div></div>
+   <div class="card-actions"><button class="small-btn" onclick="showProduct('baja')">View details</button><button class="btn" onclick="addToCart('baja')">Add to bag</button></div>
+  </article>
+  <article class="product-card">
+   <div class="product-image"><span class="tag">Popular</span><img src="assets/surron-pegs.jpeg" alt="Black Surron foot pegs"></div>
+   <div class="product-info"><div><h3>Surron Pegs</h3><p>Wide grip foot pegs</p></div><div class="price">€45.00</div></div>
+   <div class="card-actions"><button class="small-btn" onclick="showProduct('pegs')">View details</button><button class="btn" onclick="addToCart('pegs')">Add to bag</button></div>
+  </article>
+ </div>
+</section>
+<section class="feature" id="about">
+ <img src="assets/baja-light-amber.jpeg" alt="Baja Light with amber lenses">
+ <div class="feature-copy"><div class="eyebrow">Veloxa Supply</div><h2>UPGRADE<br>YOUR SETUP.</h2><p>Parts made for the electric dirt bike scene. Find the right fit, make the build yours, and get out there.</p><a class="btn btn-outline" href="#shop">Explore products&nbsp; →</a></div>
+</section>
+<section class="section" style="padding-top:55px;padding-bottom:55px">
+ <div class="values"><div class="value"><strong>Rider focused</strong><span>Products for electric dirt bike builds</span></div><div class="value"><strong>Know your fit</strong><span>Compatibility details on product pages</span></div><div class="value"><strong>Veloxa standard</strong><span>Clean parts. Clean builds.</span></div></div>
+</section>
+</main>
+<footer id="contact">
+ <div class="footer-top"><div><div class="footer-brand">VELOXA SUPPLY</div><p>Parts and upgrades for electric dirt bikes. Make your setup yours.</p></div>
+ <div class="footer-links"><div><b>SHOP</b><a href="#shop">All products</a><a href="#shop">Baja Light</a><a href="#shop">Surron Pegs</a></div><div><b>INFO</b><a href="#about">About</a><a href="mailto:hello@veloxasupply.com">Contact</a><a href="#contact">Shipping & returns</a></div></div></div>
+ <div class="footer-bottom"><span>© 2026 VELOXA SUPPLY</span><span>RIDE YOUR OWN LINE.</span></div>
+</footer>
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping bag"><div class="drawer-head"><h2>YOUR BAG</h2><button class="close" onclick="closeCart()">×</button></div><div class="cart-items" id="cartItems"></div><div class="cart-total"><div class="total-line"><b>Subtotal</b><b id="cartTotal">€0.00</b></div><button class="btn" style="width:100%" onclick="checkout()">Continue to checkout</button><div class="checkout-note">Checkout is a demo at this stage. Payment processing and shipping settings need to be connected before taking real orders.</div></div></aside>
+<div class="modal" id="productModal" onclick="if(event.target===this)closeProduct()"><div class="modal-box"><button class="close" style="position:absolute;right:20px;top:15px" onclick="closeProduct()">×</button><div id="productDetails"></div></div></div>
+<script>
+const products={
+ baja:{name:"Baja Light",price:100,image:"assets/baja-light-white.jpeg",desc:"Four-lens Baja-style headlight for the Ultra Bee. Product gallery includes the clear, amber and dark versions shown in the supplied photos.",fit:"Ultra Bee"},
+ pegs:{name:"Surron Pegs",price:45,image:"assets/surron-pegs.jpeg",desc:"Black CNC-style wide foot pegs with aggressive grip surface.",fit:"Surron LBX · Talaria XXX · Talaria MX4 · Talaria MX5 · 79Bike Falcon"}
+};
+let cart=[];
+const euro=n=>"€"+n.toFixed(2);
+function addToCart(id){cart.push(id);renderCart();openCart()}
+function renderCart(){document.getElementById("cartCount").textContent=cart.length;document.getElementById("cartItems").innerHTML=cart.length?cart.map((id,i)=>`<div class="cart-row"><img src="${products[id].image}" alt=""><div><h3>${products[id].name}</h3><p>${euro(products[id].price)}</p></div><button class="remove" onclick="removeItem(${i})">Remove</button></div>`).join(""):'<p style="color:#999;font-size:13px">Your bag is empty.</p>';document.getElementById("cartTotal").textContent=euro(cart.reduce((s,id)=>s+products[id].price,0))}
+function removeItem(i){cart.splice(i,1);renderCart()}
+function openCart(){document.getElementById("drawer").classList.add("open");document.getElementById("overlay").classList.add("open")}
+function closeCart(){document.getElementById("drawer").classList.remove("open");document.getElementById("overlay").classList.remove("open")}
+function showProduct(id){const p=products[id];document.getElementById("productDetails").innerHTML=`<div class="eyebrow">Product details</div><h2>${p.name}</h2><p style="font-size:19px;color:white">${euro(p.price)}</p><p>${p.desc}</p><div class="compat"><b style="color:#fff">Compatibility</b><br>${p.fit}</div><button class="btn" style="width:100%;margin-top:22px" onclick="addToCart('${id}');closeProduct()">Add to bag</button>`;document.getElementById("productModal").classList.add("open")}
+function closeProduct(){document.getElementById("productModal").classList.remove("open")}
+function checkout(){alert("Thanks for your interest! Online payment checkout has not been connected yet.")}
+renderCart();
+</script>
+</body></html>
